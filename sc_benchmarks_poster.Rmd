@@ -1,0 +1,179 @@
+---
+poster_width: "52in"
+poster_height: "34in"
+main_topsize: 0.19 #percent coverage of the poster
+main_bottomsize: 0.07
+#ESSENTIALS
+title: '**A framework for open and continuous community benchmarking of bioinformatic tools**'
+author:
+  - name: 'Project Website: **https://RenkuLab.io/**'
+    main: true
+  - name: 'Source code: **https://renkulab.io/gitlab/omnibenchmark**'
+    main: true
+  - name: 'License: Apache License, Version 2.0'
+    main: true
+  - name: ''
+    main: true
+  - name: '**Almut Luetge**'
+    affil: 1,2
+    twitter: Almut30618742 
+    email: almut.luetge@uzh.ch
+  - name: '**Anthony Sonrel**'
+    affil: 1,2
+    twitter:  
+    email: 
+  - name: '**Oksana Riba Grognuz**'
+    affil: 3
+    twitter: rioksana
+    email: 
+  - name: '**Izaskun Mallona Gonzalez**'
+    affil: 1,2
+  - name: '**Charlotte Soneson'
+    affil: 2,4
+  - name: '**Pierre-Luc Germain**'
+    affil: 1,2,5
+  - name: '**Federico Marini**'
+    affil: 6
+  - name: '**Gavin Lee**'
+    affil: 3
+  - name: '**Tao Sun**'
+    affil: 3
+  - name: '**Christine Choirat**'
+    affil: 3
+  - name: '**Rok Roškar**'
+    affil: 3
+  - name: '**Mark D. Robinson**'
+    affil: 1,2
+    email: 'mark.robinson@imls.uzh.ch'
+affiliation:
+  - num: 1
+    address: Institute for Molecular Life Sciences, University of Zurich, Switzerland
+  - num: 2
+    address: SIB Swiss Institute of Bioinformatics, Switzerland
+  - num: 3
+    address: Swiss Data Science Centre, Switzerland
+  - num: 4
+    address: Friedrich Miescher Institute, Basel, Switzerland
+  - num: 5
+    address:  D-HEST Institute for Neurosciences, ETH Zürich
+  - num: 6
+    address:  Center for Thrombosis and Hemostasis (CTH), Johannes Gutenberg University Mainz
+
+main_findings:
+  - "Continous benchmarking of single cell tools using __renku__"
+main_textsize: "140px"
+logoright_name: "figures/image10.png"
+logoleft_name: "figures/sib_org.png"
+logocenter_name: "figures/logo-SDSC-transparent.png"
+title_textsize: "100px"
+output: 
+  posterdown::posterdown_betterport:
+    self_contained: false
+    pandoc_args: --mathjax
+    highlight: espresso
+    number_sections: false
+bibliography: omni.bib
+link-citations: true
+primary_colour: \#01192d 
+secondary_colour: \#00a877
+accent_colour: \#f24ba0
+affiliation_textcol: \#f24ba0
+reference_textsize: "27px"
+---
+<style>
+#main-img-left {
+ width: 6%;
+}
+#main-img-center {
+ width: 10%;
+}
+#main-img-right {
+ width: 8%;
+}
+</style>
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      tidy = FALSE,
+                      message = FALSE,
+                      fig.align = 'center',
+                      out.width = "100%")
+options(knitr.table.format = "html") 
+```
+  
+#
+#
+
+# BACKGROUND
+
+**Benchmarking** is a critical step for the development of bioinformatic methods and provides important insights for their application.  
+The current benchmarking scheme has many **limitations**:
+
++ it is a `snapshot` of the available methods at a certain time point
++ it can be `outdated`, already at the time of a publication
++ `comparison of benchmarks is challenging`: different procedures, different datasets, different evaluation criteria, etc.
++ all of the above can lead to `different conclusions` among benchmarks made at different time points or at different groups.
+
+#
+#  
+  
+# CONCEPT: 
+
+→ Here we propose a new **modular** and **extensible** framework based on a free open-source analytic platform, **`RENKU`**, to offer a continuous and open `community benchmarking system`.
+
+→ The framework consists of `data`, `method` and `metric` repositories (or “modules”) that are connected via a **`knowledge graph`** from the **`RENKU system`**. 
+
+→ The results could then be displayed in an **interactive dashboard** to be openly explored by any analyst looking for recommendations of tools
+
+→ Any new data, method or metric can be added by the **community** to extend the benchmark
+
+
+### Key features of the developed benchmarking framework: 
+
++ Update the results of the benchmark periodically to provide the analysts with the latest recommendations
++ Be easily extended thanks to templates for data, methods or metrics
++ Fully follow the **`FAIR principles`** thanks to a Docker image system, an integration with Gitlab and the full **`provenance`** (tracking of inputs, commands and generated files)
++ Use a **variety of programming languages** commonly used in bioinformatics: R, Python, Bash, Julia,...
+
+```{r omni, echo=FALSE, out.width="100%"}
+knitr::include_graphics("figures/omni_scheme2.png")
+``` 
+
+#
+#
+
+# PROTOTYPE 
+
+Based on the above concept, we are currently building a prototype for community-based benchmarking of single cell batch correction methods. 
+The research in **`single-cell`** is a perfect use-case, where 900 tools have been developed in only a few years *[https://www.scrna-tools.org/]* and where the benchmarking efforts are often **not** `coordinated`, **not** `extendable` and **not** `reproducible`.
+
+**_Our prototype consists of_**:
+
++ Two datasets of 2370 genes x 3613 cells separated in 2 batches  and 1401 genes x 13575 cells separated in 3 batches [@su_cellbench_2020; @lutge_cellmixs_2021]
++ Common preprocessing consisting of normalization, highly-variable genes selection, dimensionality reduction. 
++ An integration using the MNN method [@haghverdi_batch_2018]
++ Evaluating batch-effect using the LISI metric [@korsunsky_fast_2019] and cms score [@lutge_cellmixs_2021]
++ Exploring the results using the bettr [@R-bettr]
+
+#
+#
+
+```{r renku logo, echo=FALSE, out.width="20%"}
+knitr::include_graphics("figures/logo_renku.svg")
+``` 
+
+**RENKU** is an open-source collaborative platform that provides the following features:
+
++ `knowledge infrastructure` that seamlessly integrates interactive sessions
++ automatic provenance tracking
++ GitLab CI/CD
++ version control systems for code, data and containerized environments
++ coupling of CI/CD components with the knowledge graph
+
+```{r renku, echo=FALSE, out.width="100%"}
+knitr::include_graphics("figures/renku.png")
+``` 
+
+# References

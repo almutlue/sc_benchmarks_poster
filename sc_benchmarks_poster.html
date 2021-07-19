@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>A framework for open and continuous community benchmarking of bioinformatic tools</title>
+
+<script src="sc_benchmarks_poster_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 52in 34in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 52in;
+height: 34in;
+text-align: justify;
+font-size: 45px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #00a87724;
+color: #01192d;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 20pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #00a87720;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 20pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 27px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 52in;
+height: calc(34in *  (1 - 0.19 - 0.07 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(34in *  0.19 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #00a877;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #00a877;
+}
+#title {
+font-size: 100px;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color: #01192d;
+margin: 0;
+line-height: 85%;
+font-size: 1.17em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: #f24ba0;
+font-style: italic;
+font-size: 25px;
+margin: 0;
+}
+sup {
+color: #f24ba0;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #00a877;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #01192d75 33%,
+      #01192d 50%,
+      #01192d75 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 52in;
+height: calc(34in * 0.19);
+position: absolute;
+background-color: #01192d;
+color: #ffffff90;
+font-family: Special Elite;
+background-image: linear-gradient(#01192d 50%,#00a877);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(52in * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 140px;
+font-family: Special Elite;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000030;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000030;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000030;
+font-size: 35px;
+}
+.envelope {
+color: #00000030;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 52in;
+height: 34in;
+padding: 0cm;
+}
+.main_bottom {
+width: 52in;
+height: calc(34in * 0.07);
+margin-top: calc(34in * (1 - 0.07));
+position: absolute;
+background-color: #01192d;
+background-image: linear-gradient(#00a877 10%, #01192d);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title"><strong>A framework for open and continuous community benchmarking of bioinformatic tools</strong></h1><br>
+<h3 id="author" class="author">
+
+Project Website: <strong><a href="https://RenkuLab.io/" class="uri">https://RenkuLab.io/</a></strong><sup> </sup><br>
+
+ Source code: <strong><a href="https://renkulab.io/gitlab/omnibenchmark" class="uri">https://renkulab.io/gitlab/omnibenchmark</a></strong><sup> </sup><br>
+
+ License: Apache License, Version 2.0<sup> </sup><br>
+
+ <sup> </sup><br>
+
+            </h3>
+
+<h5 id="author_extra", class="author_extra">
+    <strong>Almut Luetge</strong><sup>1,2</sup>
+ <strong>Anthony Sonrel</strong><sup>1,2</sup>
+ <strong>Oksana Riba Grognuz</strong><sup>3</sup>
+ <strong>Izaskun Mallona Gonzalez</strong><sup>1,2</sup>
+ **Charlotte Soneson<sup>2,4</sup>
+ <strong>Pierre-Luc Germain</strong><sup>1,2,5</sup>
+ <strong>Federico Marini</strong><sup>6</sup>
+ <strong>Gavin Lee</strong><sup>3</sup>
+ <strong>Tao Sun</strong><sup>3</sup>
+ <strong>Christine Choirat</strong><sup>3</sup>
+ <strong>Rok Roškar</strong><sup>3</sup>
+ <strong>Mark D. Robinson</strong><sup>1,2</sup>
+</h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> Institute for Molecular Life Sciences, University of Zurich, Switzerland<br> <sup>2</sup> SIB Swiss Institute of Bioinformatics, Switzerland<br> <sup>3</sup> Swiss Data Science Centre, Switzerland<br> <sup>4</sup> Friedrich Miescher Institute, Basel, Switzerland<br> <sup>5</sup> D-HEST Institute for Neurosciences, ETH Zürich<br> <sup>6</sup> Center for Thrombosis and Hemostasis (CTH), Johannes Gutenberg University Mainz
+</p>
+</div>
+
+<style>
+#main-img-left {
+ width: 6%;
+}
+#main-img-center {
+ width: 10%;
+}
+#main-img-right {
+ width: 8%;
+}
+</style>
+<div id="section" class="section level1">
+<h1></h1>
+</div>
+<div id="section-1" class="section level1">
+<h1></h1>
+</div>
+<div id="background" class="section level1">
+<h1>BACKGROUND</h1>
+<p><strong>Benchmarking</strong> is a critical step for the development of bioinformatic methods and provides important insights for their application.<br />
+The current benchmarking scheme has many <strong>limitations</strong>:</p>
+<ul>
+<li>it is a <code>snapshot</code> of the available methods at a certain time point</li>
+<li>it can be <code>outdated</code>, already at the time of a publication</li>
+<li><code>comparison of benchmarks is challenging</code>: different procedures, different datasets, different evaluation criteria, etc.</li>
+<li>all of the above can lead to <code>different conclusions</code> among benchmarks made at different time points or at different groups.</li>
+</ul>
+</div>
+<div id="section-2" class="section level1">
+<h1></h1>
+</div>
+<div id="section-3" class="section level1">
+<h1></h1>
+</div>
+<div id="concept" class="section level1">
+<h1>CONCEPT:</h1>
+<p>→ Here we propose a new <strong>modular</strong> and <strong>extensible</strong> framework based on a free open-source analytic platform, <strong><code>RENKU</code></strong>, to offer a continuous and open <code>community benchmarking system</code>.</p>
+<p>→ The framework consists of <code>data</code>, <code>method</code> and <code>metric</code> repositories (or “modules”) that are connected via a <strong><code>knowledge graph</code></strong> from the <strong><code>RENKU system</code></strong>.</p>
+<p>→ The results could then be displayed in an <strong>interactive dashboard</strong> to be openly explored by any analyst looking for recommendations of tools</p>
+<p>→ Any new data, method or metric can be added by the <strong>community</strong> to extend the benchmark</p>
+<div id="key-features-of-the-developed-benchmarking-framework" class="section level3">
+<h3>Key features of the developed benchmarking framework:</h3>
+<ul>
+<li>Update the results of the benchmark periodically to provide the analysts with the latest recommendations</li>
+<li>Be easily extended thanks to templates for data, methods or metrics</li>
+<li>Fully follow the <strong><code>FAIR principles</code></strong> thanks to a Docker image system, an integration with Gitlab and the full <strong><code>provenance</code></strong> (tracking of inputs, commands and generated files)</li>
+<li>Use a <strong>variety of programming languages</strong> commonly used in bioinformatics: R, Python, Bash, Julia,…</li>
+</ul>
+<p><img src="figures/omni_scheme2.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="section-4" class="section level1">
+<h1></h1>
+</div>
+<div id="section-5" class="section level1">
+<h1></h1>
+</div>
+<div id="prototype" class="section level1">
+<h1>PROTOTYPE</h1>
+<p>Based on the above concept, we are currently building a prototype for community-based benchmarking of single cell batch correction methods.
+The research in <strong><code>single-cell</code></strong> is a perfect use-case, where 900 tools have been developed in only a few years <em>[<a href="https://www.scrna-tools.org/" class="uri">https://www.scrna-tools.org/</a>]</em> and where the benchmarking efforts are often <strong>not</strong> <code>coordinated</code>, <strong>not</strong> <code>extendable</code> and <strong>not</strong> <code>reproducible</code>.</p>
+<p><strong><em>Our prototype consists of</em></strong>:</p>
+<ul>
+<li>Two datasets of 2370 genes x 3613 cells separated in 2 batches and 1401 genes x 13575 cells separated in 3 batches <span class="citation">(Su et al. <a href="#ref-su_cellbench_2020" role="doc-biblioref">2020</a>; Lütge et al. <a href="#ref-lutge_cellmixs_2021" role="doc-biblioref">2021</a>)</span></li>
+<li>Common preprocessing consisting of normalization, highly-variable genes selection, dimensionality reduction.</li>
+<li>An integration using the MNN method <span class="citation">(Haghverdi et al. <a href="#ref-haghverdi_batch_2018" role="doc-biblioref">2018</a>)</span></li>
+<li>Evaluating batch-effect using the LISI metric <span class="citation">(Korsunsky et al. <a href="#ref-korsunsky_fast_2019" role="doc-biblioref">2019</a>)</span> and cms score <span class="citation">(Lütge et al. <a href="#ref-lutge_cellmixs_2021" role="doc-biblioref">2021</a>)</span></li>
+<li>Exploring the results using the bettr <span class="citation">(Marini and Soneson <a href="#ref-R-bettr" role="doc-biblioref">2021</a>)</span></li>
+</ul>
+</div>
+<div id="section-6" class="section level1">
+<h1></h1>
+</div>
+<div id="section-7" class="section level1">
+<h1></h1>
+<p><img src="figures/logo_renku.svg" width="20%" style="display: block; margin: auto;" /></p>
+<p><strong>RENKU</strong> is an open-source collaborative platform that provides the following features:</p>
+<ul>
+<li><code>knowledge infrastructure</code> that seamlessly integrates interactive sessions</li>
+<li>automatic provenance tracking</li>
+<li>GitLab CI/CD</li>
+<li>version control systems for code, data and containerized environments</li>
+<li>coupling of CI/CD components with the knowledge graph</li>
+</ul>
+<p><img src="figures/renku.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-haghverdi_batch_2018">
+<p>Haghverdi, Laleh, Aaron T. L. Lun, Michael D. Morgan, and John C. Marioni. 2018. “Batch Effects in Single-Cell RNA-Sequencing Data Are Corrected by Matching Mutual Nearest Neighbors.” <em>Nature Biotechnology</em> 36 (5): 421–27. <a href="https://doi.org/10.1038/nbt.4091">https://doi.org/10.1038/nbt.4091</a>.</p>
+</div>
+<div id="ref-korsunsky_fast_2019">
+<p>Korsunsky, Ilya, Nghia Millard, Jean Fan, Kamil Slowikowski, Fan Zhang, Kevin Wei, Yuriy Baglaenko, Michael Brenner, Po-ru Loh, and Soumya Raychaudhuri. 2019. “Fast, Sensitive and Accurate Integration of Single-Cell Data with Harmony.” <em>Nature Methods</em> 16 (12): 1289–96. <a href="https://doi.org/10.1038/s41592-019-0619-0">https://doi.org/10.1038/s41592-019-0619-0</a>.</p>
+</div>
+<div id="ref-lutge_cellmixs_2021">
+<p>Lütge, Almut, Joanna Zyprych-Walczak, Urszula Brykczynska Kunzmann, Helena L. Crowell, Daniela Calini, Dheeraj Malhotra, Charlotte Soneson, and Mark D. Robinson. 2021. “CellMixS: Quantifying and Visualizing Batch Effects in Single-Cell RNA-Seq Data.” <em>Life Science Alliance</em> 4 (6). <a href="https://doi.org/10.26508/lsa.202001004">https://doi.org/10.26508/lsa.202001004</a>.</p>
+</div>
+<div id="ref-R-bettr">
+<p>Marini, Federico, and Charlotte Soneson. 2021. <em>Bettr: A Better Way to Explore What Is Best</em>. <a href="https://github.com/federicomarini/bettr">https://github.com/federicomarini/bettr</a>.</p>
+</div>
+<div id="ref-su_cellbench_2020">
+<p>Su, Shian, Luyi Tian, Xueyi Dong, Peter F Hickey, Saskia Freytag, and Matthew E Ritchie. 2020. “CellBench: R/Bioconductor Software for Comparing Single-Cell RNA-Seq Analysis Methods.” <em>Bioinformatics</em> 36 (7): 2288–90. <a href="https://doi.org/10.1093/bioinformatics/btz889">https://doi.org/10.1093/bioinformatics/btz889</a>.</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class="main">
+<p>Continous benchmarking of single cell tools using <strong>renku</strong></p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=figures/sib_org.png>
+<img id="main-img-center" src=figures/logo-SDSC-transparent.png>
+<img id="main-img-right" src=figures/image10.png>
+</div>
+</div>
+
+
+
+</body>
+</html>
