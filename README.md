@@ -1,2 +1,3 @@
-# sc_benchmarks_poster
-Poster about single cell benchmarks with renku to present at BOSC 2021
+## Poster for BOSC
+
+The current version of the poster can be seen [here](https://almutlue.github.io/sc_benchmarks_poster/sc_benchmarks_poster.html)
