@@ -1,7 +1,7 @@
 ---
-poster_width: "52in"
-poster_height: "34in"
-main_topsize: 0.19 #percent coverage of the poster
+poster_width: "55in"
+poster_height: "40in"
+main_topsize: 0.18 #percent coverage of the poster
 main_bottomsize: 0.07
 #ESSENTIALS
 title: '**A framework for open and continuous community benchmarking of bioinformatic tools**'
@@ -10,7 +10,7 @@ author:
     main: true
   - name: 'Source code: **https://renkulab.io/gitlab/omnibenchmark**'
     main: true
-  - name: 'License: Apache License, Version 2.0'
+  - name: 'License: **Apache License, Version 2.0**'
     main: true
   - name: ''
     main: true
@@ -51,7 +51,7 @@ affiliation:
   - num: 2
     address: SIB Swiss Institute of Bioinformatics, Switzerland
   - num: 3
-    address: Swiss Data Science Centre, Switzerland
+    address: Swiss Data Science Center, ETH Zurich and EPFL, Switzerland
   - num: 4
     address: Friedrich Miescher Institute, Basel, Switzerland
   - num: 5
@@ -137,8 +137,8 @@ The current benchmarking scheme has many **limitations**:
 + Fully follow the **`FAIR principles`** thanks to a Docker image system, an integration with Gitlab and the full **`provenance`** (tracking of inputs, commands and generated files)
 + Use a **variety of programming languages** commonly used in bioinformatics: R, Python, Bash, Julia,...
 
-```{r omni, echo=FALSE, out.width="100%"}
-knitr::include_graphics("figures/omni_scheme2.png")
+```{r omni, echo=FALSE, out.width="90%"}
+knitr::include_graphics("figures/shema.png")
 ``` 
 
 #
@@ -157,6 +157,11 @@ The research in **`single-cell`** is a perfect use-case, where 900 tools have be
 + Evaluating batch-effect using the LISI metric [@korsunsky_fast_2019] and cms score [@lutge_cellmixs_2021]
 + Exploring the results using the bettr [@R-bettr]
 
+```{r omni proto, echo=FALSE, out.width="95%"}
+knitr::include_graphics("figures/proto.png")
+``` 
+
+
 #
 #
 
@@ -164,15 +169,22 @@ The research in **`single-cell`** is a perfect use-case, where 900 tools have be
 knitr::include_graphics("figures/logo_renku.svg")
 ``` 
 
-**RENKU** is an open-source collaborative platform that provides the following features:
+**RENKU** is an open and collaborative platform which provides a knowledge infrastructure for the entire research life cycle. The platform and its tools are built on top of a stack of open-source components and aims to make data science reproducible. 
 
-+ `knowledge infrastructure` that seamlessly integrates interactive sessions
-+ automatic provenance tracking
-+ GitLab CI/CD
-+ version control systems for code, data and containerized environments
-+ coupling of CI/CD components with the knowledge graph
+On **RENKU**:
 
-```{r renku, echo=FALSE, out.width="100%"}
++ Fully interactive sessions can be accessed through the browser, with no local installation needed
+
++ Versioning and containers ensure precise and reproducible computational environments
+
++ Datasets and workflows are automatically tracked in a **`knowledge graph`**, which can be queried from within a project, a group of projects or even across deployments
+
++ Workflows can be re-run or updated automatically when inputs such as datasets or scripts change 
+
++ CI/CD can be leveraged to automate repetitive and predictable tasks, such as fetching results of a piece of analysis to integrate into a dashboard
+
+
+```{r renku, echo=FALSE, out.height="70%", out.width="70%"}
 knitr::include_graphics("figures/renku.png")
 ``` 
 
