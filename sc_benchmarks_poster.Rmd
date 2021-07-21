@@ -112,37 +112,38 @@ options(knitr.table.format = "html")
 **Benchmarking** is a critical step for the development of bioinformatic methods and provides important insights for their application.  
 The current benchmarking scheme has many **limitations**:
 
--- it is a **`snapshot`** of the available methods at a certain time point.  
--- it can be **`outdated`**, already at the time of a publication. 
--- **`low comparability`**: different procedures, different datasets, different evaluation criteria. 
--- all of the above can lead to **`different conclusions`** among benchmarks made at different time points or at different groups.  
-
-<br/>
+-- it is a **`snapshot`** of the available methods at a certain time point.   
+-- it can be **`outdated`**, already at the time of a publication.  
+-- **`low comparability`**: different procedures, different datasets, different evaluation criteria.  
+-- all of the above can lead to **`different conclusions`** among benchmarks made at different time points or at different groups.   
 
 #  
   
 # CONCEPT 
 
-$\checkmark$ Here we propose a new **modular** and **extensible** framework based on a free open-source analytic platform, **`RENKU`**, to offer a continuous and open **`community benchmarking system`**.
+$\checkmark$ Here we propose a new **`modular`** and **`extensible`** framework based on a free open-source analytic platform, **`RENKU`**, to offer a continuous and open **`community benchmarking system`**.
 
 $\checkmark$ The framework consists of **`data`**, **`method`** and **`metric`** repositories (or “modules”) that are connected via a **`knowledge graph`** from the **`RENKU system`**. 
 
-$\checkmark$ The results could then be displayed in an **interactive dashboard** to be openly explored by any analyst looking for recommendations of tools.
+$\checkmark$ The results could then be displayed in an **`interactive dashboard`** to be openly explored by any analyst looking for recommendations of tools.
 
-$\checkmark$ Any new data, method or metric can be added by the **community** to extend the benchmark.
+$\checkmark$ Any new data, method or metric can be added by the **`community`** to extend the benchmark.
 
 
-### Key features of the developed benchmarking framework: 
+<br/>
 
-+ Update the results of the benchmark periodically to provide the analysts with the latest recommendations
+**_Key features of the developed benchmarking framework:_**
+
++ Periodic updates to provide the community with the latest recommendations
 + Easy extendable thanks to templates for data, methods or metrics
 + Follow the **`FAIR principles`** thanks to a Docker image system, an integration with Gitlab and the full **`provenance`** (tracking of inputs, commands and generated files)
-+ Use a **variety of programming languages** commonly used in bioinformatics: R, Python, Bash, Julia,...
++ Use **`independent (docker) environments`** and flexibly connect and share modules within and between benchmarks.
++ Use a **`variety of programming languages`** commonly used in bioinformatics: R, Python, Bash, Julia,...
 
 ```{r omni, echo=FALSE, out.width="90%", fig.cap="Overview of the proposed benchmarking framework on the RENKU platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). Any new data, method or metric can be easily integrated in the framework by the scientific community to trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of RENKU and contain Docker images to provide fully reproducible results."}
 
 
-knitr::include_graphics("figures/renku_shema.png")
+knitr::include_graphics("figures/renku_shema2.png")
 ``` 
 
 <br/>
@@ -167,7 +168,8 @@ Research in **single-cell RNA-seq (scRNA-seq)** is a perfect use case, where 900
 knitr::include_graphics("figures/proto_small.png")
 ``` 
 
-<br/>
+
+
 
 #
 
@@ -193,7 +195,7 @@ On **RENKU**:
 
 
 ```{r renku, echo=FALSE, out.height="70%", out.width="70%"}
-knitr::include_graphics("figures/renku.png")
+knitr::include_graphics("figures/kg.png")
 ``` 
 
 # References
