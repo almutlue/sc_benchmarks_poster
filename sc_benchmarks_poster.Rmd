@@ -72,8 +72,9 @@ output:
     pandoc_args: --mathjax
     highlight: espresso
     number_sections: false
-bibliography: omni.bib
-link-citations: true
+bibliography: "lib/omni.bib"
+link-citations: false
+csl: "lib/citations.csl"
 primary_colour: \#01192d 
 secondary_colour: \#00a877
 accent_colour: \#f24ba0
@@ -104,30 +105,31 @@ options(knitr.table.format = "html")
 ```
   
 #
-#
 
 # BACKGROUND
+
 
 **Benchmarking** is a critical step for the development of bioinformatic methods and provides important insights for their application.  
 The current benchmarking scheme has many **limitations**:
 
-+ it is a `snapshot` of the available methods at a certain time point
-+ it can be `outdated`, already at the time of a publication
-+ `comparison of benchmarks is challenging`: different procedures, different datasets, different evaluation criteria, etc.
-+ all of the above can lead to `different conclusions` among benchmarks made at different time points or at different groups.
+-- it is a **`snapshot`** of the available methods at a certain time point  
+-- it can be **`outdated`**, already at the time of a publication  
+-- **`low comparability`**: different procedures, different datasets, different evaluation criteria  
+-- all of the above can lead to **`different conclusions`** among benchmarks made at different time points or at different groups.  
 
-#
+<br/>
+
 #  
   
 # CONCEPT: 
 
-→ Here we propose a new **modular** and **extensible** framework based on a free open-source analytic platform, **`RENKU`**, to offer a continuous and open `community benchmarking system`.
+$\checkmark$ Here we propose a new **modular** and **extensible** framework based on a free open-source analytic platform, **`RENKU`**, to offer a continuous and open **`community benchmarking system`**.
 
-→ The framework consists of `data`, `method` and `metric` repositories (or “modules”) that are connected via a **`knowledge graph`** from the **`RENKU system`**. 
+$\checkmark$ The framework consists of **`data`**, **`method`** and **`metric`** repositories (or “modules”) that are connected via a **`knowledge graph`** from the **`RENKU system`**. 
 
-→ The results could then be displayed in an **interactive dashboard** to be openly explored by any analyst looking for recommendations of tools
+$\checkmark$ The results could then be displayed in an **interactive dashboard** to be openly explored by any analyst looking for recommendations of tools
 
-→ Any new data, method or metric can be added by the **community** to extend the benchmark
+$\checkmark$ Any new data, method or metric can be added by the **community** to extend the benchmark
 
 
 ### Key features of the developed benchmarking framework: 
@@ -137,17 +139,20 @@ The current benchmarking scheme has many **limitations**:
 + Fully follow the **`FAIR principles`** thanks to a Docker image system, an integration with Gitlab and the full **`provenance`** (tracking of inputs, commands and generated files)
 + Use a **variety of programming languages** commonly used in bioinformatics: R, Python, Bash, Julia,...
 
-```{r omni, echo=FALSE, out.width="90%"}
-knitr::include_graphics("figures/shema.png")
+```{r omni, echo=FALSE, out.width="90%", fig.cap="Overview of the proposed benchmarking framework on the Renku platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). Any new data, method or metric can be easily integrated in the framework by the scientific community and trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of Renku and contain Docker images to provide fully reproducible results."}
+
+
+knitr::include_graphics("figures/renku_shema.png")
 ``` 
 
-#
+<br/>
+
 #
 
 # PROTOTYPE 
 
 Based on the above concept, we are currently building a prototype for community-based benchmarking of single cell batch correction methods. 
-The research in **`single-cell`** is a perfect use-case, where 900 tools have been developed in only a few years *[https://www.scrna-tools.org/]* and where the benchmarking efforts are often **not** `coordinated`, **not** `extendable` and **not** `reproducible`.
+The research in **`single-cell`** is a perfect use-case, where 900 tools have been developed in only a few years [@zappia_exploring_2018] and where the benchmarking efforts are often **not** **`coordinated`**, **not** **`extendable`** and **not** **`reproducible`**.
 
 **_Our prototype consists of_**:
 
@@ -157,17 +162,20 @@ The research in **`single-cell`** is a perfect use-case, where 900 tools have be
 + Evaluating batch-effect using the LISI metric [@korsunsky_fast_2019] and cms score [@lutge_cellmixs_2021]
 + Exploring the results using the bettr [@R-bettr]
 
-```{r omni proto, echo=FALSE, out.width="95%"}
-knitr::include_graphics("figures/proto.png")
+```{r proto1, echo=FALSE, out.width="95%", fig.cap="Example of the proposed framework applied to benchmark batch correction methods of scRNA-seq data. Datasets are uniformly processed and passed to a batch-correction method of a separated module. Results are displayed in a shiny app for an interactive exploration of the results. All modules are connected through the Renku knowledge graph, which allows to track workflows from a set of repositories using different environments and programming languages." }
+
+knitr::include_graphics("figures/proto_small.png")
 ``` 
 
+<br/>
 
-#
 #
 
 ```{r renku logo, echo=FALSE, out.width="20%"}
 knitr::include_graphics("figures/logo_renku.svg")
 ``` 
+
+#
 
 **RENKU** is an open and collaborative platform which provides a knowledge infrastructure for the entire research life cycle. The platform and its tools are built on top of a stack of open-source components and aims to make data science reproducible. 
 

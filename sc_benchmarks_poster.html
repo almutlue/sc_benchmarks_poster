@@ -413,32 +413,25 @@ Project Website: <strong><a href="https://RenkuLab.io/" class="uri">https://Renk
 <div id="section" class="section level1">
 <h1></h1>
 </div>
-<div id="section-1" class="section level1">
-<h1></h1>
-</div>
 <div id="background" class="section level1">
 <h1>BACKGROUND</h1>
 <p><strong>Benchmarking</strong> is a critical step for the development of bioinformatic methods and provides important insights for their application.<br />
 The current benchmarking scheme has many <strong>limitations</strong>:</p>
-<ul>
-<li>it is a <code>snapshot</code> of the available methods at a certain time point</li>
-<li>it can be <code>outdated</code>, already at the time of a publication</li>
-<li><code>comparison of benchmarks is challenging</code>: different procedures, different datasets, different evaluation criteria, etc.</li>
-<li>all of the above can lead to <code>different conclusions</code> among benchmarks made at different time points or at different groups.</li>
-</ul>
+<p>– it is a <strong><code>snapshot</code></strong> of the available methods at a certain time point<br />
+– it can be <strong><code>outdated</code></strong>, already at the time of a publication<br />
+– <strong><code>low comparability</code></strong>: different procedures, different datasets, different evaluation criteria<br />
+– all of the above can lead to <strong><code>different conclusions</code></strong> among benchmarks made at different time points or at different groups.</p>
+<p><br/></p>
 </div>
-<div id="section-2" class="section level1">
-<h1></h1>
-</div>
-<div id="section-3" class="section level1">
+<div id="section-1" class="section level1">
 <h1></h1>
 </div>
 <div id="concept" class="section level1">
 <h1>CONCEPT:</h1>
-<p>→ Here we propose a new <strong>modular</strong> and <strong>extensible</strong> framework based on a free open-source analytic platform, <strong><code>RENKU</code></strong>, to offer a continuous and open <code>community benchmarking system</code>.</p>
-<p>→ The framework consists of <code>data</code>, <code>method</code> and <code>metric</code> repositories (or “modules”) that are connected via a <strong><code>knowledge graph</code></strong> from the <strong><code>RENKU system</code></strong>.</p>
-<p>→ The results could then be displayed in an <strong>interactive dashboard</strong> to be openly explored by any analyst looking for recommendations of tools</p>
-<p>→ Any new data, method or metric can be added by the <strong>community</strong> to extend the benchmark</p>
+<p><span class="math inline">\(\checkmark\)</span> Here we propose a new <strong>modular</strong> and <strong>extensible</strong> framework based on a free open-source analytic platform, <strong><code>RENKU</code></strong>, to offer a continuous and open <strong><code>community benchmarking system</code></strong>.</p>
+<p><span class="math inline">\(\checkmark\)</span> The framework consists of <strong><code>data</code></strong>, <strong><code>method</code></strong> and <strong><code>metric</code></strong> repositories (or “modules”) that are connected via a <strong><code>knowledge graph</code></strong> from the <strong><code>RENKU system</code></strong>.</p>
+<p><span class="math inline">\(\checkmark\)</span> The results could then be displayed in an <strong>interactive dashboard</strong> to be openly explored by any analyst looking for recommendations of tools</p>
+<p><span class="math inline">\(\checkmark\)</span> Any new data, method or metric can be added by the <strong>community</strong> to extend the benchmark</p>
 <div id="key-features-of-the-developed-benchmarking-framework" class="section level3">
 <h3>Key features of the developed benchmarking framework:</h3>
 <ul>
@@ -447,35 +440,44 @@ The current benchmarking scheme has many <strong>limitations</strong>:</p>
 <li>Fully follow the <strong><code>FAIR principles</code></strong> thanks to a Docker image system, an integration with Gitlab and the full <strong><code>provenance</code></strong> (tracking of inputs, commands and generated files)</li>
 <li>Use a <strong>variety of programming languages</strong> commonly used in bioinformatics: R, Python, Bash, Julia,…</li>
 </ul>
-<p><img src="figures/shema.png" width="90%" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:omni"></span>
+<img src="figures/renku_shema.png" alt="Overview of the proposed benchmarking framework on the Renku platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). Any new data, method or metric can be easily integrated in the framework by the scientific community and trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of Renku and contain Docker images to provide fully reproducible results." width="90%" />
+<p class="caption">
+Figure 1: Overview of the proposed benchmarking framework on the Renku platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). Any new data, method or metric can be easily integrated in the framework by the scientific community and trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of Renku and contain Docker images to provide fully reproducible results.
+</p>
+</div>
+<p><br/></p>
 </div>
 </div>
-<div id="section-4" class="section level1">
-<h1></h1>
-</div>
-<div id="section-5" class="section level1">
+<div id="section-2" class="section level1">
 <h1></h1>
 </div>
 <div id="prototype" class="section level1">
 <h1>PROTOTYPE</h1>
 <p>Based on the above concept, we are currently building a prototype for community-based benchmarking of single cell batch correction methods.
-The research in <strong><code>single-cell</code></strong> is a perfect use-case, where 900 tools have been developed in only a few years <em>[<a href="https://www.scrna-tools.org/" class="uri">https://www.scrna-tools.org/</a>]</em> and where the benchmarking efforts are often <strong>not</strong> <code>coordinated</code>, <strong>not</strong> <code>extendable</code> and <strong>not</strong> <code>reproducible</code>.</p>
+The research in <strong><code>single-cell</code></strong> is a perfect use-case, where 900 tools have been developed in only a few years <span class="citation">[1]</span> and where the benchmarking efforts are often <strong>not</strong> <strong><code>coordinated</code></strong>, <strong>not</strong> <strong><code>extendable</code></strong> and <strong>not</strong> <strong><code>reproducible</code></strong>.</p>
 <p><strong><em>Our prototype consists of</em></strong>:</p>
 <ul>
-<li>Two datasets of 2370 genes x 3613 cells separated in 2 batches and 1401 genes x 13575 cells separated in 3 batches <span class="citation">(Su et al. <a href="#ref-su_cellbench_2020" role="doc-biblioref">2020</a>; Lütge et al. <a href="#ref-lutge_cellmixs_2021" role="doc-biblioref">2021</a>)</span></li>
+<li>Two datasets of 2370 genes x 3613 cells separated in 2 batches and 1401 genes x 13575 cells separated in 3 batches <span class="citation">[2, 3]</span></li>
 <li>Common preprocessing consisting of normalization, highly-variable genes selection, dimensionality reduction.</li>
-<li>An integration using the MNN method <span class="citation">(Haghverdi et al. <a href="#ref-haghverdi_batch_2018" role="doc-biblioref">2018</a>)</span></li>
-<li>Evaluating batch-effect using the LISI metric <span class="citation">(Korsunsky et al. <a href="#ref-korsunsky_fast_2019" role="doc-biblioref">2019</a>)</span> and cms score <span class="citation">(Lütge et al. <a href="#ref-lutge_cellmixs_2021" role="doc-biblioref">2021</a>)</span></li>
-<li>Exploring the results using the bettr <span class="citation">(Marini and Soneson <a href="#ref-R-bettr" role="doc-biblioref">2021</a>)</span></li>
+<li>An integration using the MNN method <span class="citation">[4]</span></li>
+<li>Evaluating batch-effect using the LISI metric <span class="citation">[5]</span> and cms score <span class="citation">[3]</span></li>
+<li>Exploring the results using the bettr <span class="citation">[6]</span></li>
 </ul>
-<p><img src="figures/proto.png" width="95%" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:proto1"></span>
+<img src="figures/proto_small.png" alt="Example of the proposed framework applied to benchmark batch correction methods of scRNA-seq data. Datasets are uniformly processed and passed to a batch-correction method of a separated module. Results are displayed in a shiny app for an interactive exploration of the results. All modules are connected through the Renku knowledge graph, which allows to track workflows from a set of repositories using different environments and programming languages." width="95%" />
+<p class="caption">
+Figure 2: Example of the proposed framework applied to benchmark batch correction methods of scRNA-seq data. Datasets are uniformly processed and passed to a batch-correction method of a separated module. Results are displayed in a shiny app for an interactive exploration of the results. All modules are connected through the Renku knowledge graph, which allows to track workflows from a set of repositories using different environments and programming languages.
+</p>
 </div>
-<div id="section-6" class="section level1">
-<h1></h1>
+<p><br/></p>
 </div>
-<div id="section-7" class="section level1">
+<div id="section-3" class="section level1">
 <h1></h1>
 <p><img src="figures/logo_renku.svg" width="20%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="section-4" class="section level1">
+<h1></h1>
 <p><strong>RENKU</strong> is an open and collaborative platform which provides a knowledge infrastructure for the entire research life cycle. The platform and its tools are built on top of a stack of open-source components and aims to make data science reproducible.</p>
 <p>On <strong>RENKU</strong>:</p>
 <ul>
@@ -490,20 +492,23 @@ The research in <strong><code>single-cell</code></strong> is a perfect use-case,
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 <div id="refs" class="references">
-<div id="ref-haghverdi_batch_2018">
-<p>Haghverdi, Laleh, Aaron T. L. Lun, Michael D. Morgan, and John C. Marioni. 2018. “Batch Effects in Single-Cell RNA-Sequencing Data Are Corrected by Matching Mutual Nearest Neighbors.” <em>Nature Biotechnology</em> 36 (5): 421–27. <a href="https://doi.org/10.1038/nbt.4091">https://doi.org/10.1038/nbt.4091</a>.</p>
-</div>
-<div id="ref-korsunsky_fast_2019">
-<p>Korsunsky, Ilya, Nghia Millard, Jean Fan, Kamil Slowikowski, Fan Zhang, Kevin Wei, Yuriy Baglaenko, Michael Brenner, Po-ru Loh, and Soumya Raychaudhuri. 2019. “Fast, Sensitive and Accurate Integration of Single-Cell Data with Harmony.” <em>Nature Methods</em> 16 (12): 1289–96. <a href="https://doi.org/10.1038/s41592-019-0619-0">https://doi.org/10.1038/s41592-019-0619-0</a>.</p>
-</div>
-<div id="ref-lutge_cellmixs_2021">
-<p>Lütge, Almut, Joanna Zyprych-Walczak, Urszula Brykczynska Kunzmann, Helena L. Crowell, Daniela Calini, Dheeraj Malhotra, Charlotte Soneson, and Mark D. Robinson. 2021. “CellMixS: Quantifying and Visualizing Batch Effects in Single-Cell RNA-Seq Data.” <em>Life Science Alliance</em> 4 (6). <a href="https://doi.org/10.26508/lsa.202001004">https://doi.org/10.26508/lsa.202001004</a>.</p>
-</div>
-<div id="ref-R-bettr">
-<p>Marini, Federico, and Charlotte Soneson. 2021. <em>Bettr: A Better Way to Explore What Is Best</em>. <a href="https://github.com/federicomarini/bettr">https://github.com/federicomarini/bettr</a>.</p>
+<div id="ref-zappia_exploring_2018">
+<p>1. Zappia L, Phipson B, Oshlack A (2018) Exploring the single-cell RNA-seq analysis landscape with the scRNA-tools database. PLOS Computational Biology 14:e1006245. <a href="https://doi.org/10.1371/journal.pcbi.1006245">https://doi.org/10.1371/journal.pcbi.1006245</a></p>
 </div>
 <div id="ref-su_cellbench_2020">
-<p>Su, Shian, Luyi Tian, Xueyi Dong, Peter F Hickey, Saskia Freytag, and Matthew E Ritchie. 2020. “CellBench: R/Bioconductor Software for Comparing Single-Cell RNA-Seq Analysis Methods.” <em>Bioinformatics</em> 36 (7): 2288–90. <a href="https://doi.org/10.1093/bioinformatics/btz889">https://doi.org/10.1093/bioinformatics/btz889</a>.</p>
+<p>2. Su S, Tian L, Dong X, et al (2020) CellBench: R/Bioconductor software for comparing single-cell RNA-seq analysis methods. Bioinformatics 36:2288–2290. <a href="https://doi.org/10.1093/bioinformatics/btz889">https://doi.org/10.1093/bioinformatics/btz889</a></p>
+</div>
+<div id="ref-lutge_cellmixs_2021">
+<p>3. Lütge A, Zyprych-Walczak J, Kunzmann UB, et al (2021) CellMixS: Quantifying and visualizing batch effects in single-cell RNA-seq data. Life Science Alliance 4: <a href="https://doi.org/10.26508/lsa.202001004">https://doi.org/10.26508/lsa.202001004</a></p>
+</div>
+<div id="ref-haghverdi_batch_2018">
+<p>4. Haghverdi L, Lun ATL, Morgan MD, Marioni JC (2018) Batch effects in single-cell RNA-sequencing data are corrected by matching mutual nearest neighbors. Nature Biotechnology 36:421–427. <a href="https://doi.org/10.1038/nbt.4091">https://doi.org/10.1038/nbt.4091</a></p>
+</div>
+<div id="ref-korsunsky_fast_2019">
+<p>5. Korsunsky I, Millard N, Fan J, et al (2019) Fast, sensitive and accurate integration of single-cell data with Harmony. Nature Methods 16:1289–1296. <a href="https://doi.org/10.1038/s41592-019-0619-0">https://doi.org/10.1038/s41592-019-0619-0</a></p>
+</div>
+<div id="ref-R-bettr">
+<p>6. Marini F, Soneson C (2021) Bettr: A better way to explore what is best</p>
 </div>
 </div>
 </div>
@@ -519,6 +524,19 @@ The research in <strong><code>single-cell</code></strong> is a perfect use-case,
 </div>
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+var script = document.createElement("script");
+script.type = "text/javascript";
+var src = "true";
+if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+if (location.protocol !== "file:" && /^https?:/.test(src))
+src = src.replace(/^https?:/, '');
+script.src = src;
+document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>
 
 
 </body>
