@@ -6,7 +6,7 @@ main_bottomsize: 0.07
 #ESSENTIALS
 title: '**A framework for open and continuous community benchmarking of bioinformatic tools**'
 author:
-  - name: 'Project Website: **https://RenkuLab.io/**'
+  - name: 'Project Website: **https://renkulab.io/projects/omnibenchmark**'
     main: true
   - name: 'Source code: **https://renkulab.io/gitlab/omnibenchmark**'
     main: true
