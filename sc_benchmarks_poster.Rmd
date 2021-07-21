@@ -121,7 +121,7 @@ The current benchmarking scheme has many **limitations**:
 
 #  
   
-# CONCEPT: 
+# CONCEPT 
 
 $\checkmark$ Here we propose a new **modular** and **extensible** framework based on a free open-source analytic platform, **`RENKU`**, to offer a continuous and open **`community benchmarking system`**.
 
