@@ -33,7 +33,7 @@ Here are the required style attributes for css to make this poster work :)
 -->
 <style>
 @page {
-size: 55in 40in;
+size: 55in 42in;
 margin: 0;
 padding: 0;
 }
@@ -41,7 +41,7 @@ body {
 margin: 0px;
 padding: 0px;
 width: 55in;
-height: 40in;
+height: 42in;
 text-align: justify;
 font-size: 45px;
 line-height: 1.05;
@@ -125,7 +125,7 @@ padding: 0px;
 }
 .outer {
 width: 55in;
-height: calc(40in *  (1 - 0.18 - 0.07 - 0.01) );
+height: calc(42in *  (1 - 0.18 - 0.07 - 0.01) );
 -webkit-column-count: 3; /* Chrome, Safari, Opera */
 -moz-column-count: 3; /* Firefox */
 column-count: 3;
@@ -146,7 +146,7 @@ column-rule-style: none;
 column-rule-color: black;
 background-color: #ffffff;
 font-family: Rasa;
-margin-top: calc(40in *  0.18 );
+margin-top: calc(42in *  0.18 );
 padding-top: 1em;
 padding-bottom: 1em;
 }
@@ -239,7 +239,7 @@ text-align: left;
 }
 .main {
 width: 55in;
-height: calc(40in * 0.18);
+height: calc(42in * 0.18);
 position: absolute;
 background-color: #01192d;
 color: #ffffff90;
@@ -305,13 +305,13 @@ text-decoration: none;
 }
 .poster_wrap {
 width: 55in;
-height: 40in;
+height: 42in;
 padding: 0cm;
 }
 .main_bottom {
 width: 55in;
-height: calc(40in * 0.07);
-margin-top: calc(40in * (1 - 0.07));
+height: calc(42in * 0.07);
+margin-top: calc(42in * (1 - 0.07));
 position: absolute;
 background-color: #01192d;
 background-image: linear-gradient(#00a877 10%, #01192d);
@@ -395,7 +395,7 @@ Project Website: <strong><a href="https://renkulab.io/projects/omnibenchmark" cl
 
 
 <p id="affiliation" class="affiliation">
-<sup>1</sup> Institute for Molecular Life Sciences, University of Zurich, Switzerland<br> <sup>2</sup> SIB Swiss Institute of Bioinformatics, Switzerland<br> <sup>3</sup> Swiss Data Science Center, ETH Zurich and EPFL, Switzerland<br> <sup>4</sup> Friedrich Miescher Institute, Basel, Switzerland<br> <sup>5</sup> D-HEST Institute for Neurosciences, ETH Zürich, Switzerland<br> <sup>6</sup> Center for Thrombosis and Hemostasis (CTH), Johannes Gutenberg University Mainz, Germany
+<sup>1</sup> Department of Molecular Life Sciences, University of Zurich, Switzerland<br> <sup>2</sup> SIB Swiss Institute of Bioinformatics, Switzerland<br> <sup>3</sup> Swiss Data Science Center, ETH Zurich and EPFL, Switzerland<br> <sup>4</sup> Friedrich Miescher Institute, Basel, Switzerland<br> <sup>5</sup> D-HEST Institute for Neurosciences, ETH Zürich, Switzerland<br> <sup>6</sup> Center for Thrombosis and Hemostasis (CTH), Johannes Gutenberg University Mainz, Germany
 </p>
 </div>
 
@@ -415,11 +415,12 @@ Project Website: <strong><a href="https://renkulab.io/projects/omnibenchmark" cl
 </div>
 <div id="background" class="section level1">
 <h1>BACKGROUND</h1>
-<p><strong>Benchmarking</strong> is a critical step for the development of bioinformatic methods and provides important insights for their application.<br />
-The current benchmarking scheme has many <strong>limitations</strong>:</p>
-<p>– it is a <strong><code>snapshot</code></strong> of the available methods at a certain time point.<br />
-– it can be <strong><code>outdated</code></strong>, already at the time of a publication.<br />
-– <strong><code>low comparability</code></strong>: different procedures, different datasets, different evaluation criteria.<br />
+<p><strong>Benchmarking</strong> is critical for the development of performant computational methods and provides important insights for their application. In particular, methods research in <strong>single-cell RNA-seq (scRNA-seq)</strong> provides a perfect use case, where more than 900 tools have been developed in only a few years <span class="citation">[1]</span>. Benchmarking efforts are often <strong>not</strong> <strong><code>coordinated</code></strong>, <strong>not</strong> <strong><code>extensible</code></strong> and <strong>not</strong> <strong><code>reproducible</code></strong>.</p>
+<p>Current benchmarking approaches have many <strong>limitations</strong>:</p>
+<p>– they represent only a <strong><code>snapshot</code></strong> of the available methods at a certain time point.<br />
+– they become quickly <strong><code>outdated</code></strong>, even at the time of a publication.<br />
+– they suffer <strong><code>low comparability</code></strong>: different procedures, different datasets, different evaluation criteria.<br />
+– they lack <strong><code>standardization</code></strong>; each benchmarker decides the importance of performance criteria.
 – all of the above can lead to <strong><code>different conclusions</code></strong> among benchmarks made at different time points or at different groups.</p>
 </div>
 <div id="section-1" class="section level1">
@@ -427,23 +428,22 @@ The current benchmarking scheme has many <strong>limitations</strong>:</p>
 </div>
 <div id="concept" class="section level1">
 <h1>CONCEPT</h1>
-<p><span class="math inline">\(\checkmark\)</span> Here we propose a new <strong><code>modular</code></strong> and <strong><code>extensible</code></strong> framework based on a free open-source analytic platform, <strong><code>RENKU</code></strong>, to offer a continuous and open <strong><code>community benchmarking system</code></strong>.</p>
-<p><span class="math inline">\(\checkmark\)</span> The framework consists of <strong><code>data</code></strong>, <strong><code>method</code></strong> and <strong><code>metric</code></strong> repositories (or “modules”) that are connected via a <strong><code>knowledge graph</code></strong> from the <strong><code>RENKU system</code></strong>.</p>
-<p><span class="math inline">\(\checkmark\)</span> The results could then be displayed in an <strong><code>interactive dashboard</code></strong> to be openly explored by any analyst looking for recommendations of tools.</p>
-<p><span class="math inline">\(\checkmark\)</span> Any new data, method or metric can be added by the <strong><code>community</code></strong> to extend the benchmark.</p>
-<p><br/></p>
+<p><span class="math inline">\(\checkmark\)</span> We propose a new <strong><code>modular</code></strong> and <strong><code>extensible</code></strong> framework based on a free open-source analytic platform, <strong><code>RENKU</code></strong>, to offer a continuous and open <strong><code>community benchmarking system</code></strong>.</p>
+<p><span class="math inline">\(\checkmark\)</span> The framework consists of <strong><code>data</code></strong>, <strong><code>method</code></strong> and <strong><code>metric</code></strong> repositories (or “modules”) that are connected via a <strong><code>knowledge graph</code></strong>.</p>
+<p><span class="math inline">\(\checkmark\)</span> Performance results can be coupled with an <strong><code>interactive dashboard</code></strong> to be explored flexibly by any analyst looking for tool recommendations.</p>
+<p><span class="math inline">\(\checkmark\)</span> New datasets, methods or metrics can be added by the <strong><code>community</code></strong>.</p>
 <p><strong><em>Key features of the developed benchmarking framework:</em></strong></p>
 <ul>
-<li>Periodic updates to provide the community with the latest recommendations</li>
-<li>Easy extendable thanks to templates for data, methods or metrics</li>
-<li>Follow the <strong><code>FAIR principles</code></strong> thanks to a Docker image system, an integration with Gitlab and the full <strong><code>provenance</code></strong> (tracking of inputs, commands and generated files)</li>
-<li>Use <strong><code>independent (docker) environments</code></strong> and flexibly connect and share modules within and between benchmarks.</li>
-<li>Use a <strong><code>variety of programming languages</code></strong> commonly used in bioinformatics: R, Python, Bash, Julia,…</li>
+<li>Periodic updates to provide the community with the latest recommendations.</li>
+<li>Easily extensible with templates for data, methods or metrics.</li>
+<li>Follows the <strong><code>FAIR</code></strong> principles via Docker images, integration with Gitlab and full <strong><code>provenance</code></strong>.</li>
+<li>Uses <strong><code>independent (docker) environments</code></strong> and flexibly connects and shares modules within and between benchmarks.</li>
+<li>Flexibility to accommodate <strong><code>various programming languages</code></strong> used in bioinformatics: R, Python, Bash, Julia, etc.</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:omni"></span>
-<img src="figures/renku_shema2.png" alt="Overview of the proposed benchmarking framework on the RENKU platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). Any new data, method or metric can be easily integrated in the framework by the scientific community to trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of RENKU and contain Docker images to provide fully reproducible results." width="90%" />
+<img src="figures/renku_shema2.png" alt="Overview of the proposed benchmarking framework on the RENKU platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). New datasets, methods or metrics can be easily integrated into the framework to trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of RENKU, utilizing Docker images to provide fully reproducible results." width="100%" />
 <p class="caption">
-Figure 1: Overview of the proposed benchmarking framework on the RENKU platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). Any new data, method or metric can be easily integrated in the framework by the scientific community to trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of RENKU and contain Docker images to provide fully reproducible results.
+Figure 1: Overview of the proposed benchmarking framework on the RENKU platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). New datasets, methods or metrics can be easily integrated into the framework to trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of RENKU, utilizing Docker images to provide fully reproducible results.
 </p>
 </div>
 <p><br/></p>
@@ -453,22 +453,26 @@ Figure 1: Overview of the proposed benchmarking framework on the RENKU platform.
 </div>
 <div id="prototype" class="section level1">
 <h1>PROTOTYPE</h1>
-<p>Based on the above concept, we are currently building a prototype for community-based benchmarking of single-cell batch correction methods.
-Research in <strong>single-cell RNA-seq (scRNA-seq)</strong> is a perfect use case, where 900 tools have been developed in only a few years <span class="citation">[1]</span> and where the benchmarking efforts are often <strong>not</strong> <strong><code>coordinated</code></strong>, <strong>not</strong> <strong><code>extendable</code></strong> and <strong>not</strong> <strong><code>reproducible</code></strong>.</p>
+<p>We are currently building a prototype (Figure 1) for community-based benchmarking of single-cell batch correction methods.</p>
 <p><strong><em>Our prototype consists of</em></strong>:</p>
 <ul>
-<li>Two datasets of 2370 genes x 3613 cells separated in 2 batches and 1401 genes x 13575 cells separated in 3 batches <span class="citation">[2, 3]</span>.</li>
-<li>Common preprocessing consisting of normalization, highly-variable genes selection, dimensionality reduction.</li>
-<li>An integration using the MNN method <span class="citation">[4]</span>.</li>
-<li>Evaluating batch-effect using the LISI metric <span class="citation">[5]</span> and cms score <span class="citation">[3]</span>.</li>
-<li>Exploring the results using the interactive browser bettR <span class="citation">[6]</span>.</li>
+<li>Two datasets:
+<ol style="list-style-type: lower-roman">
+<li>one with 2370 genes x 3613 cells separated in 2 batches; and,</li>
+<li>one with 1401 genes x 13575 cells separated in 3 batches <span class="citation">[2, 3]</span>.</li>
+</ol></li>
+<li>Standardized preprocessing consisting of normalization, highly-variable genes selection, dimensionality reduction.</li>
+<li>An integration using the MNN method <span class="citation">[4]</span> (Figure 2).</li>
+<li>Evaluation of batch-effect correction using the LISI metric <span class="citation">[5]</span> and cms score <span class="citation">[3]</span>.</li>
+<li>Exploring the results using the interactive browser bettR <span class="citation">[6]</span> (Figure 2).</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:proto1"></span>
-<img src="figures/proto_small.png" alt="Example of the proposed framework applied to benchmark batch correction methods of scRNA-seq data. Datasets are uniformly processed and passed to a batch-correction method of a separated module. Results are displayed in a shiny app for an interactive exploration of the results. All modules are connected through the RENKU knowledge graph, which allows to track workflows from a set of repositories using different environments and programming languages." width="95%" />
+<img src="figures/proto_small.png" alt="Example of the proposed framework applied to benchmark single cell RNA-seq batch correction methods. Datasets are uniformly processed and passed to a batch-correction method within a separate module. Results are displayed in a shiny app for an interactive exploration of the results. All modules are connected through the RENKU knowledge graph, which allows workflows to be tracked from a set of repositories using different environments and programming languages." width="100%" />
 <p class="caption">
-Figure 2: Example of the proposed framework applied to benchmark batch correction methods of scRNA-seq data. Datasets are uniformly processed and passed to a batch-correction method of a separated module. Results are displayed in a shiny app for an interactive exploration of the results. All modules are connected through the RENKU knowledge graph, which allows to track workflows from a set of repositories using different environments and programming languages.
+Figure 2: Example of the proposed framework applied to benchmark single cell RNA-seq batch correction methods. Datasets are uniformly processed and passed to a batch-correction method within a separate module. Results are displayed in a shiny app for an interactive exploration of the results. All modules are connected through the RENKU knowledge graph, which allows workflows to be tracked from a set of repositories using different environments and programming languages.
 </p>
 </div>
+<p><br/></p>
 </div>
 <div id="section-3" class="section level1">
 <h1></h1>
@@ -476,16 +480,21 @@ Figure 2: Example of the proposed framework applied to benchmark batch correctio
 </div>
 <div id="section-4" class="section level1">
 <h1></h1>
-<p><strong>RENKU</strong> is an open and collaborative platform which provides a knowledge infrastructure for the entire research life cycle. The platform and its tools are built on top of a stack of open-source components and aims to make data science reproducible.</p>
+<p><strong>RENKU</strong> is an open and collaborative platform that provides a knowledge infrastructure for the entire research life cycle (Figure 3). The platform and its tools are built on top of a stack of open-source components and aims to make data science reproducible.</p>
 <p>On <strong>RENKU</strong>:</p>
 <ul>
-<li><p>As RENKU is based on cloud computing fully interactive sessions can be accessed through the browser, with no local installation needed or through a CLI.</p></li>
+<li><p>Since RENKU is based on cloud computing, fully interactive sessions can be accessed via a the browser, with no local installation needed.</p></li>
 <li><p>Versioning and containers ensure precise and reproducible computational environments.</p></li>
 <li><p>Datasets and workflows are automatically tracked in a <strong><code>knowledge graph</code></strong>, which can be queried from within a project, a group of projects or even across deployments.</p></li>
 <li><p>Workflows can be re-run or updated automatically when inputs such as datasets or scripts change.</p></li>
 <li><p>CI/CD can be leveraged to automate cumbersome tasks, such as fetching results of a piece of analysis to integrate into a dashboard.</p></li>
 </ul>
-<p><img src="figures/kg.png" width="70%" height="70%" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span id="fig:renku"></span>
+<img src="figures/kg.png" alt="Overview of RENKU components that allow reproducible scientific work. Centered around the knowledge graph, renku provides code versioning, containerized enviroments, workflows, data tracking and automatic provenance." width="80%" height="70%" />
+<p class="caption">
+Figure 3: Overview of RENKU components that allow reproducible scientific work. Centered around the knowledge graph, renku provides code versioning, containerized enviroments, workflows, data tracking and automatic provenance.
+</p>
+</div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>

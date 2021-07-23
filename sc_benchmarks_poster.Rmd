@@ -1,6 +1,6 @@
 ---
 poster_width: "55in"
-poster_height: "40in"
+poster_height: "42in"
 main_topsize: 0.18 #percent coverage of the poster
 main_bottomsize: 0.07
 #ESSENTIALS
@@ -117,7 +117,7 @@ Current benchmarking approaches have many **limitations**:
 -- they represent only a **`snapshot`** of the available methods at a certain time point.   
 -- they become quickly **`outdated`**, even at the time of a publication.  
 -- they suffer **`low comparability`**: different procedures, different datasets, different evaluation criteria.  
--- they lack **`standardization`**; each benchmarker decides the importance of performance criteria
+-- they lack **`standardization`**; each benchmarker decides the importance of performance criteria.
 -- all of the above can lead to **`different conclusions`** among benchmarks made at different time points or at different groups.   
 
 #  
@@ -133,17 +133,15 @@ $\checkmark$ Performance results can be coupled with an **`interactive dashboard
 $\checkmark$ New datasets, methods or metrics can be added by the **`community`**.
 
 
-<br/>
-
 **_Key features of the developed benchmarking framework:_**
 
-+ Periodic updates to provide the community with the latest recommendations
-+ Easily extensible with templates for data, methods or metrics
-+ Follows the **`FAIR`** principles via Docker images, integration with Gitlab and full **`provenance`** (tracking of inputs, commands and generated files)
++ Periodic updates to provide the community with the latest recommendations.
++ Easily extensible with templates for data, methods or metrics.
++ Follows the **`FAIR`** principles via Docker images, integration with Gitlab and full **`provenance`**.
 + Uses **`independent (docker) environments`** and flexibly connects and shares modules within and between benchmarks.
 + Flexibility to accommodate **`various programming languages`** used in bioinformatics: R, Python, Bash, Julia, etc.
 
-```{r omni, echo=FALSE, out.width="90%", fig.cap="Overview of the proposed benchmarking framework on the RENKU platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). New datasets, methods or metrics can be easily integrated into the framework to trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of RENKU, utilizing Docker images to provide fully reproducible results."}
+```{r omni, echo=FALSE, out.width="100%", fig.cap="Overview of the proposed benchmarking framework on the RENKU platform. Each step of the benchmark consists of a set of repositories (a.k.a “modules”) that perform a coordinated task (e.g. standardized data processing). New datasets, methods or metrics can be easily integrated into the framework to trigger a continuous delivery to the analysts with up-to-date recommendations. Each component of the framework is automatically tracked by the knowledge graph of RENKU, utilizing Docker images to provide fully reproducible results."}
 
 
 knitr::include_graphics("figures/renku_shema2.png")
@@ -159,19 +157,20 @@ We are currently building a prototype (Figure 1) for community-based benchmarkin
 
 **_Our prototype consists of_**:
 
-+ Two datasets: i) one with 2370 genes x 3613 cells separated in 2 batches; and, ii) one with 1401 genes x 13575 cells separated in 3 batches [@su_cellbench_2020; @lutge_cellmixs_2021].
++ Two datasets: 
+  i) one with 2370 genes x 3613 cells separated in 2 batches; and, 
+  ii) one with 1401 genes x 13575 cells separated in 3 batches [@su_cellbench_2020; @lutge_cellmixs_2021].
 + Standardized preprocessing consisting of normalization, highly-variable genes selection, dimensionality reduction. 
 + An integration using the MNN method [@haghverdi_batch_2018] (Figure 2).
 + Evaluation of batch-effect correction using the LISI metric [@korsunsky_fast_2019] and cms score [@lutge_cellmixs_2021].
 + Exploring the results using the interactive browser bettR [@R-bettr] (Figure 2).
 
-```{r proto1, echo=FALSE, out.width="95%", fig.cap="Example of the proposed framework applied to benchmark single cell RNA-seq batch correction methods. Datasets are uniformly processed and passed to a batch-correction method within a separate module. Results are displayed in a shiny app for an interactive exploration of the results. All modules are connected through the RENKU knowledge graph, which allows workflows to be tracked from a set of repositories using different environments and programming languages." }
+```{r proto1, echo=FALSE, out.width="100%", fig.cap="Example of the proposed framework applied to benchmark single cell RNA-seq batch correction methods. Datasets are uniformly processed and passed to a batch-correction method within a separate module. Results are displayed in a shiny app for an interactive exploration of the results. All modules are connected through the RENKU knowledge graph, which allows workflows to be tracked from a set of repositories using different environments and programming languages." }
 
 knitr::include_graphics("figures/proto_small.png")
 ``` 
 
-
-
+<br/>
 
 #
 
@@ -181,7 +180,7 @@ knitr::include_graphics("figures/logo_renku.svg")
 
 #
 
-**RENKU** is an open and collaborative platform that provides a knowledge infrastructure for the entire research life cycle. The platform and its tools are built on top of a stack of open-source components and aims to make data science reproducible. 
+**RENKU** is an open and collaborative platform that provides a knowledge infrastructure for the entire research life cycle (Figure 3). The platform and its tools are built on top of a stack of open-source components and aims to make data science reproducible. 
 
 On **RENKU**:
 
@@ -196,7 +195,8 @@ On **RENKU**:
 + CI/CD can be leveraged to automate cumbersome tasks, such as fetching results of a piece of analysis to integrate into a dashboard.
 
 
-```{r renku, echo=FALSE, out.height="70%", out.width="70%"}
+```{r renku, echo=FALSE, out.height="70%", out.width="80%", fig.cap="Overview of RENKU components that allow reproducible scientific work. Centered around the knowledge graph, renku provides code versioning, containerized enviroments, workflows, data tracking and automatic provenance."}
+
 knitr::include_graphics("figures/kg.png")
 ``` 
 
